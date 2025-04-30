@@ -27,7 +27,8 @@ class SlidingTrisGame:
             "X": "#3a7ebf",  # Blu per X
             "O": "#bf3a3a",  # Rosso per O
             "win": "#4CAF50",  # Verde per vincita
-            "next_remove": "#FFD700",  # Oro per evidenziare la prossima da rimuovere
+            "next_remove_gold": "#FFD700",  # Oro per evidenziare la prossima da rimuovere
+            "next_remove": "#333333",  # Oro per evidenziare la prossima da rimuovere
             "bg": "#2b2b2b",  # Sfondo scuro
             "text": "#ffffff"  # Testo chiaro
         }
@@ -300,22 +301,31 @@ class SlidingTrisGame:
                 self.root.after(700, self.computer_move)
 
     def highlight_next_remove(self):
-        # Prima resetta tutti i bordi
+        # Prima resetta tutti i bordi e colori del testo
         for i, btn in enumerate(self.buttons):
             if self.board[i] != "":
-                btn.configure(border_color=self.colors[self.board[i]])
+                btn.configure(
+                    border_color=self.colors[self.board[i]],
+                    text_color=self.colors[self.board[i]]
+                )
             else:
                 btn.configure(border_color="#3E3E3E")
 
         # Evidenzia la prossima pedina da rimuovere per X (se ce ne sono 3)
         if len(self.moves_x) == 3:
             next_to_remove_x = self.moves_x[0]
-            self.buttons[next_to_remove_x].configure(border_color=self.colors["next_remove"])
+            self.buttons[next_to_remove_x].configure(
+                border_color=self.colors["next_remove"],
+                text_color=self.colors["next_remove"]  # Cambia anche il colore del testo in oro
+            )
 
         # Evidenzia la prossima pedina da rimuovere per O (se ce ne sono 3)
         if len(self.moves_o) == 3:
             next_to_remove_o = self.moves_o[0]
-            self.buttons[next_to_remove_o].configure(border_color=self.colors["next_remove"])
+            self.buttons[next_to_remove_o].configure(
+                border_color=self.colors["next_remove"],
+                text_color=self.colors["next_remove"]  # Cambia anche il colore del testo in oro
+            )
 
     def computer_move(self):
         if self.game_over:
