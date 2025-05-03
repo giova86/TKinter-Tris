@@ -41,7 +41,7 @@ class SlidingTrisGame:
         self.title_label = ctk.CTkLabel(
             self.main_frame,
             text="TRIS - VARIANTE 3 PEDINE",
-            font=ctk.CTkFont(size=24, weight="bold")
+            font=ctk.CTkFont(size=28, weight="bold")
         )
         self.title_label.pack(pady=(15, 5))
 
@@ -65,7 +65,7 @@ class SlidingTrisGame:
                 btn = ctk.CTkButton(
                     self.game_frame,
                     text="",
-                    font=ctk.CTkFont(size=32, weight="bold"),
+                    font=ctk.CTkFont(size=52, weight="bold"),
                     width=100,
                     height=100,
                     fg_color="#3E3E3E",
@@ -87,7 +87,7 @@ class SlidingTrisGame:
 
         self.player_label = ctk.CTkLabel(
             self.player_frame,
-            text="Turno del giocatore:",
+            text="Turn of the player:",
             font=ctk.CTkFont(size=16)
         )
         self.player_label.grid(row=0, column=0, padx=10, pady=10)
@@ -102,11 +102,11 @@ class SlidingTrisGame:
 
         # Contatori pedine
         self.counter_frame = ctk.CTkFrame(self.info_frame)
-        self.counter_frame.pack(pady=5)
+        self.counter_frame.pack(pady=10)
 
         self.x_pieces_label = ctk.CTkLabel(
             self.counter_frame,
-            text="Pedine X: 0/3",
+            text="Stone X: 0/3",
             font=ctk.CTkFont(size=14),
             text_color=self.colors["X"]
         )
@@ -114,7 +114,7 @@ class SlidingTrisGame:
 
         self.o_pieces_label = ctk.CTkLabel(
             self.counter_frame,
-            text="Pedine O: 0/3",
+            text="Stone O: 0/3",
             font=ctk.CTkFont(size=14),
             text_color=self.colors["O"]
         )
@@ -140,7 +140,7 @@ class SlidingTrisGame:
 
         self.two_player_rb = ctk.CTkRadioButton(
             self.mode_frame,
-            text="2 Giocatori",
+            text="VS Player",
             variable=self.game_mode,
             value="player",
             font=ctk.CTkFont(size=14)
@@ -149,7 +149,7 @@ class SlidingTrisGame:
 
         self.vs_computer_rb = ctk.CTkRadioButton(
             self.mode_frame,
-            text="Vs Computer",
+            text="VS Computer",
             variable=self.game_mode,
             value="computer",
             font=ctk.CTkFont(size=14)
@@ -159,7 +159,7 @@ class SlidingTrisGame:
         # Pulsante per reset
         self.reset_button = ctk.CTkButton(
             self.control_frame,
-            text="Nuova Partita",
+            text="New Game",
             command=self.reset_game,
             font=ctk.CTkFont(size=16),
             height=40,
@@ -178,7 +178,7 @@ class SlidingTrisGame:
 
         self.score_label = ctk.CTkLabel(
             self.score_frame,
-            text="Punteggio",
+            text="Score",
             font=ctk.CTkFont(size=18, weight="bold")
         )
         self.score_label.pack(pady=(10, 5))
@@ -219,7 +219,7 @@ class SlidingTrisGame:
 
         ctk.CTkLabel(
             self.score_grid,
-            text="Pareggi:",
+            text="Draws:",
             font=ctk.CTkFont(size=16)
         ).grid(row=0, column=4, padx=10, pady=5)
 
